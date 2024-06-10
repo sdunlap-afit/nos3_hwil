@@ -1,11 +1,11 @@
 
 
-# sudo apt install -y make cmake
-
-# echo '10.1.10.52 nos_engine_server' | sudo tee -a /etc/hosts
-
-
 sudo apt update
+sudo apt install -y make cmake
+
+echo '10.1.10.52 nos_engine_server' | sudo tee -a /etc/hosts
+
+# Dependencies from Deployment Dockerfile
 sudo apt install -y \
         cmake \
         git \
