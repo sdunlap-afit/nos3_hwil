@@ -1,0 +1,8 @@
+{
+	"name": "llvm development container",
+	"dockerFile": "./Dockerfile",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/user/nos3_hwil,type=bind",
+	"workspaceFolder": "/home/user/nos3_hwil",
+	"runArgs": ["--sysctl=fs.mqueue.msg_max=2048", "--cap-add=sys_nice", "--cap-add=sys_resource", "--ulimit=rtprio=99"],
+	"remoteUser": "user"
+}
