@@ -1,11 +1,15 @@
 
 
-sudo apt update
-
-
-
 
 cd nos3
+source scripts/env.sh
+mkdir $FSW_DIR/data 2> /dev/null
+mkdir $FSW_DIR/data/cam 2> /dev/null
+mkdir $FSW_DIR/data/evs 2> /dev/null
+mkdir $FSW_DIR/data/hk 2> /dev/null
+mkdir $FSW_DIR/data/inst 2> /dev/null
+
+
 make config
 make build-fsw
 
