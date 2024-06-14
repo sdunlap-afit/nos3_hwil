@@ -7,7 +7,7 @@
 
 # FSW Machine
 
-These instructions have been tested on a Raspberry Pi with the `dev#231` branch of NOS3. The following steps will allow FSW to run either in a docker container OR directly on the Raspberry Pi. Either way, Docker will be used to build the FSW. This process could be more efficient, but it is the simplest way to get the FSW running with minimal changes to NOS3 files.
+These instructions have been tested on a Raspberry Pi 4, with Raspberry Pi OS Lite (64-bit), and the `dev#231` branch of NOS3. The following steps will allow FSW to run either in a docker container OR directly on the Raspberry Pi. Either way, Docker will be used to build the FSW. This process could be more efficient, but it is the simplest way to get the FSW running with minimal changes to NOS3 files.
 
 ## One-time Setup
 
