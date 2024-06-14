@@ -2,7 +2,7 @@
 # NOS3 FSW and NOS3 Engine Server on Separate Machines
 
 
-**Warning: This process is a work in progress and has not been fully tested. While it appears to work, you should validate the results with a normal setup.**
+**Warning: This process is a work in progress and has not been fully tested. While it appears to function, you should validate the results.**
 
 
 # FSW Machine
