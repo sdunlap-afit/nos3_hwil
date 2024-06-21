@@ -21,7 +21,7 @@ echo '* - rtprio 99' | sudo tee -a /etc/security/limits.conf
 Add the IP address of the host on which the NOS3 server is running to the hosts file.
 
 ```bash
-echo '10.1.10.52 nos_engine_server' | sudo tee -a /etc/hosts
+echo '<IP> nos_engine_server' | sudo tee -a /etc/hosts
 ```
 
 Reboot the machine to apply all the changes.
@@ -31,9 +31,10 @@ sudo reboot
 ```
 
 ```bash
+cd ~
 git clone https://github.com/nasa/nos3.git
 cd nos3
-git switch nos3\#231
+git switch dev
 git submodule update --init --recursive
 ```
 
@@ -46,8 +47,20 @@ Note: There will be some errors at the end of `make prep`, but they won't affect
 ```bash
 make prep
 make config
-make
+make fsw
 ```
+
+`docker_launch.sh` also creates a number of data directories. Since we're not using the docker launch script, we'll need to create them ourselves.
+
+```bash
+source scripts/env.sh
+mkdir $FSW_DIR/data 2> /dev/null
+mkdir $FSW_DIR/data/cam 2> /dev/null
+mkdir $FSW_DIR/data/evs 2> /dev/null
+mkdir $FSW_DIR/data/hk 2> /dev/null
+mkdir $FSW_DIR/data/inst 2> /dev/null
+```
+
 
 ## Run FSW in Docker
 
@@ -74,7 +87,7 @@ sudo apt install -y libxerces-c-dev
 cd ~
 git clone https://github.com/nasa-itc/deployment.git
 cd deployment
-git switch nos3\#231
+git switch dev
 sudo apt install -y ./nos3_filestore/packages/ubuntu/*arm64.deb
 sudo chmod 777 /usr/lib/libitc_* /usr/lib/libnos_engine_*
 ```
@@ -82,6 +95,7 @@ sudo chmod 777 /usr/lib/libitc_* /usr/lib/libnos_engine_*
 ## Run FSW on Host Machine
 
 ```bash
+cd ~/nos3
 source scripts/env.sh
 $SCRIPT_DIR/fsw_respawn.sh
 ```
@@ -102,7 +116,7 @@ Note: Setting up docker will depend on your host machine and is not documented h
 ```bash
 git clone https://github.com/nasa/nos3.git
 cd nos3
-git switch nos3\#231
+git switch dev
 git submodule update --init --recursive
 ```
 
